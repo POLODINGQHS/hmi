@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/js/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+        
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="assets/css/custom/signininfo.css" rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" href="assets/jedate/test/jeDate-test.css">
+	<link type="text/css" rel="stylesheet" href="assets/jedate/skin/jedate.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+          <a href="index.html" class="logo" style="margin-top: 5px"><img style="margin-top: 0;" src="assets/img/logo.jpg"></a>
+            <!--logo end-->
+
+          <div class="top-menu">
+           	<div class="btn-group" style="float:right;margin-top:10px">
+			  <button type="button" class="btn btn-theme03" id="logout"><a id="logout" href="login.html"></a></button>
+			  <button type="button" class="btn btn-theme03 dropdown-toggle" data-toggle="dropdown">
+			    <span class="caret"></span>
+			    <span class="sr-only"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a href="javascript:swicthCookie();" id="change_lang"></a></li>
+			  </ul>
+			</div>      
+          </div>
+        </header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+
+                  <br>
+                  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <h3 id="login_name" class="centered" style="color: #ddb53a;">管理员</h3>
+                  <br>
+                  <li class="mt">
+                      <a href="index.html">
+                          <i class="fa fa-desktop"></i>
+                          <span class="homepage"></span>
+                      </a>
+                  </li>
+
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h2><i class="fa fa-angle-right"></i> <span id="punch_record"></span></h2>
+              <!-- page start-->
+              <div class="row mt">
+<!--                   <aside class="col-lg-3 mt"> -->
+<!--                       <img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt=""> -->
+<!--                   </aside> -->
+                       
+                  <aside class="col-lg-9 mt">
+                      <section class="panel">
+                          <div class="panel-body">
+                              <div id="calendar" class="has-toolbar"></div>
+                          </div>
+                      </section>
+                  </aside>
+                  <aside class="col-lg-2 mt">
+                      <div class="signininfo">
+                          <div class="signininfo-row"><span id="due_to_month"></span><span id="totalDays"></span><span class="day"></span></div>
+                          <div class="signininfo-row"><span id="current_available"></span><span id="realDays"></span><span class="day"></span></div>
+                          <div class="signininfo-row"><span class="leave"></span><span id="leaveDays"></span><span class="day"></span></div>
+                          <div class="signininfo-row"><span id="completion"></span><span id="absentDays"></span><span class="day"></span></div>
+                          <div class="signininfo-row"><span id="late"></span><span id="lateDays"></span><span class="day"></span></div>
+                          <div class="signininfo-row"><span id="leave_early"></span><span id="leaveEarlyDays"></span><span class="day"></span></div>
+                      </div>
+                      <div>
+                      	<button class="btn btn-success btn-sm pull-left leave" data-toggle="modal" data-target="#leaveModal"></button> 
+                      </div>  
+                  </aside>
+              </div>
+              <!-- page end-->
+		</section><!--/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <!--main content end-->
+      <footer class="site-footer">
+          <div class="text-center">
+              Copyright &copy; 2017.GLOBOT All rights reserved.
+              <a href="index.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+	
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="assets/js/fullcalendar/fullcalendar.min.js"></script>    
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+
+    <!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+    <script src="assets/js/custom/init.js"></script>
+    <script type="text/javascript" src="assets/js/custom/cookie.js"></script>
+  	<script src="assets/js/jquery.json.min.js"></script>
+  	<script src="assets/js/jquery.i18n.properties.js"></script>
+    <script src="assets/js/custom/menu.js"></script>
+    <script src="assets/js/custom/calendar.js"></script>
+    
+    <!--script for this page-->  
+	<script src="assets/js/calendar-conf-events.js"></script>  
+	<!--script for jeDates--> 
+	<script type="text/javascript" src="assets/jedate/jquery.jedate.js"></script>
+	<script type="text/javascript" src="assets/jedate/test/jedate-test.js"></script>   
+  
+	
+
+	<div tabindex="-1" class="modal fade" id="leaveModal" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel" style="display: none;">
+  		 <div class="modal-dialog">
+             <div class="modal-content" style="width: 660px;">
+                 <div class="modal-header">
+                     <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                     <h4 class="modal-title leave"></h4>
+                 </div>
+                 <div class="modal-body">
+	      			<div style="padding-top:10px;">
+	      				<div style="padding-top: 10px;width: 600px;"><div style="display:inline-block;width:20%"><span id="leave_date_span"></span>:</div><input id="leave_date" style="display: inline; width:50%" type="text" name="name" placeholder="日期" autocomplete="off" class="form-control placeholder-no-fix"></div>
+	        			<div style="padding-top: 10px;width: 600px;"><div style="display:inline-block;width:20%"><span id="leave_time_span"></span>:</div>
+		        			<select id="leave_time" class="form-control" style="color: #807575; width:300px;margin-top: 20px;display: inline; width:50%">
+							  <option value ="0">上午</option>
+							  <option value ="1">下午</option>
+							</select>
+						</div>
+						<div style="padding-top: 10px;width: 600px;"><div style="display:inline-block;width:20%"><span id="leave_type_span"></span>:</div>
+							<select id="leave_type" class="form-control" style="color: #807575; width:300px;margin-top: 20px;display: inline; width:40%">
+							  <option value ="0">病假</option>
+							  <option value ="1">事假</option>
+							</select>
+						</div>
+                        <div style="padding-top: 10px;width: 600px;"><div style="display:inline-block;width:20%"><span id="leave_reason_span"></span>:</div><input id="leave_reason" style="display: inline; width:50%" type="text" name="name" placeholder="原因" autocomplete="off" class="form-control placeholder-no-fix"></div>
+	      			</div>
+	      		</div>
+			   <div class="modal-footer">
+			        <button class="btn btn-default cancel" type="button" data-dismiss="modal"></button>
+			        <button class="btn btn-theme submit" onclick="submitLeave()" type="button"></button>
+		       </div>
+    		</div>
+  		</div>
+    </div>
+    <script type="text/javascript">
+		  //jeDate.skin('gray');
+		  $("#leave_date").jeDate({
+		          format:"YYYY-MM-DD",
+		          isTime:true, 
+		          minDate:"2014-09-19"
+		      })
+	</script>
+  </body>
+</html>

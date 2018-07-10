@@ -1,0 +1,101 @@
+.profile-left {
+    padding-left: 10px;
+    float: left;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #F8F8F8;
+}
+.profile-header {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.profile-header .overlay {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.profile-header .profile-main {
+    position: relative;
+    padding: 20px;
+    background-image: url(../../img/profile-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.profile-header .online-status {
+    font-size: 13px;
+    position: relative;
+    top: -2px;
+}
+.profile-header .profile-stat {
+    position: relative;
+    background-color: #00AAFF;
+}
+.profile-header .profile-stat .stat-item {
+    padding: 20px;
+    position: relative;
+}
+.profile-info ul > li {
+    margin-bottom: 8px;
+}
+.profile-info .heading {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+.profile-info {
+    padding: 0 20px;
+    margin: 40px 0;
+}
+ul.list-justify > li {
+    margin-bottom: 5px;
+}
+ul.list-justify > li span {
+    float: right;
+}
+.profile-detail {
+    padding-bottom: 30px;
+}
+.social-icons > li > a {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #4d4d4d;
+    color: #fff;
+}
+.facebook-bg {
+    background-color: #3b5998 !important;
+}
+.twitter-bg {
+    background-color: #55acee !important;
+}
+.google-plus-bg {
+    background-color: #dc4e41 !important;
+}
+.github-bg {
+    background-color: #4183c4 !important;
+}
+.profile-header .online-status.status-available:before {
+    background-color: #41B314;
+}
+.profile-header .online-status:before {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+}

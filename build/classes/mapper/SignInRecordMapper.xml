@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.globot.hmi.attendance.dao.mapper.SignInRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.globot.hmi.attendance.domain.SignInRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="job_number" property="jobNumber" jdbcType="VARCHAR" />
+    <result column="sign_in_time" property="signInTime" jdbcType="TIMESTAMP" />
+    <result column="sign_in_pic" property="signInPic" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="LeaveResultMap" type="com.globot.hmi.attendance.domain.Leave" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="job_number" property="jobNumber" jdbcType="VARCHAR" />
+    <result column="leave_date" property="leaveDate" jdbcType="TIMESTAMP" />
+    <result column="leave_time" property="leaveTime" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="statu" property="statu" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, job_number, sign_in_time, sign_in_pic
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.globot.hmi.attendance.domain.SignInRecordExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sign_in_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sign_in_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sign_in_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.globot.hmi.attendance.domain.SignInRecordExample" >
+    delete from sign_in_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.globot.hmi.attendance.domain.SignInRecord" >
+    insert into sign_in_record (id, job_number, sign_in_time, 
+      sign_in_pic)
+    values (#{id,jdbcType=INTEGER}, #{jobNumber,jdbcType=VARCHAR}, #{signInTime,jdbcType=TIMESTAMP}, 
+      #{signInPic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.globot.hmi.attendance.domain.SignInRecord" >
+    insert into sign_in_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="jobNumber != null" >
+        job_number,
+      </if>
+      <if test="signInTime != null" >
+        sign_in_time,
+      </if>
+      <if test="signInPic != null" >
+        sign_in_pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="jobNumber != null" >
+        #{jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="signInTime != null" >
+        #{signInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signInPic != null" >
+        #{signInPic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.globot.hmi.attendance.domain.SignInRecordExample" resultType="java.lang.Integer" >
+    select count(*) from sign_in_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sign_in_record
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.jobNumber != null" >
+        job_number = #{record.jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signInTime != null" >
+        sign_in_time = #{record.signInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.signInPic != null" >
+        sign_in_pic = #{record.signInPic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sign_in_record
+    set id = #{record.id,jdbcType=INTEGER},
+      job_number = #{record.jobNumber,jdbcType=VARCHAR},
+      sign_in_time = #{record.signInTime,jdbcType=TIMESTAMP},
+      sign_in_pic = #{record.signInPic,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.globot.hmi.attendance.domain.SignInRecord" >
+    update sign_in_record
+    <set >
+      <if test="jobNumber != null" >
+        job_number = #{jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="signInTime != null" >
+        sign_in_time = #{signInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signInPic != null" >
+        sign_in_pic = #{signInPic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.globot.hmi.attendance.domain.SignInRecord" >
+    update sign_in_record
+    set job_number = #{jobNumber,jdbcType=VARCHAR},
+      sign_in_time = #{signInTime,jdbcType=TIMESTAMP},
+      sign_in_pic = #{signInPic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="countRealDays" parameterType="map" resultType="java.lang.Integer">
+	select count(*)
+	from (select count(*) from sign_in_record
+	where job_number=#{jobNumber,jdbcType=VARCHAR}
+	and dayofweek(sign_in_time) not in (1,7)
+	and date_format(sign_in_time,'%Y-%m')=date_format(#{date,jdbcType=TIMESTAMP},'%Y-%m')
+	group by date_format(sign_in_time,'%Y-%m-%d')) as tmp
+  </select>
+  <select id="showSignInRecord" resultType="com.globot.hmi.attendance.dto.SignInRecordDTO">
+    select e.name,e.job_number as jobNumber,e.org,a.day,a.uptime,a.downtime from (select job_number,cast(sign_in_time as date) as day,min(cast(sign_in_time as time)) as uptime,max(cast(sign_in_time as time)) as downtime from sign_in_record group by cast(sign_in_time as date),job_number)a join employee as e on a.job_number=e.job_number;
+  </select>
+  <insert id="applyLeave" parameterType="com.globot.hmi.attendance.domain.Leave">
+    insert into employee_leave (job_number,leave_date,leave_time,reason,type) values (#{jobNumber,jdbcType=VARCHAR}, #{leaveDate,jdbcType=TIMESTAMP}, #{leaveTime,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER})
+  </insert>
+  <select id="getLeaveByJobNumber" parameterType="String" resultMap="LeaveResultMap">
+	select *
+	from employee_leave
+	where job_number=#{jobNumber,jdbcType=VARCHAR}
+  </select>
+  <select id="countLeaveDays" parameterType="map" resultType="java.lang.Integer">
+	select count(*) from employee_leave
+	where job_number=#{jobNumber,jdbcType=VARCHAR}
+	and date_format(leave_date,'%Y-%m')=date_format(#{date,jdbcType=TIMESTAMP},'%Y-%m')
+  </select>
+  <select id="countLateDays" parameterType="map" resultType="java.lang.Integer">
+	select count(*)
+	from (select count(*) from sign_in_record
+	where job_number=#{jobNumber,jdbcType=VARCHAR}
+	and HOUR(sign_in_time) not in (4,5,6,7,8,9)
+	and date_format(sign_in_time,'%Y-%m')=date_format(#{date,jdbcType=TIMESTAMP},'%Y-%m')
+	group by date_format(sign_in_time,'%Y-%m-%d')) as tmp
+  </select>
+  <select id="countLeaveEarlyDays" parameterType="map" resultType="java.lang.Integer">
+	select count(*)
+	from (select count(*) from sign_in_record
+	where job_number=#{jobNumber,jdbcType=VARCHAR}
+	and HOUR(sign_in_time) not in (18,19,20,21,22,23)
+	and date_format(sign_in_time,'%Y-%m')=date_format(#{date,jdbcType=TIMESTAMP},'%Y-%m')
+	group by date_format(sign_in_time,'%Y-%m-%d')) as tmp
+  </select>
+</mapper>

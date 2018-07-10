@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <title>GLOBOT</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+	  <div id="login-page">
+  		<a id="changeLangA" href="javascript:swicthCookie();" style="float:right;"></a>
+	  	<div class="container">
+		      <div class="form-login">
+				  <h2 class="form-login-heading"><span id="loginWelcome"></span></h2>
+				  <div class="login-wrap">
+					  <input id="username" type="text" class="form-control" placeholder="" autofocus>
+					  <br>
+					  <input id="password" type="password" class="form-control" placeholder="">
+					  <label class="checkbox">
+		                
+					  </label>
+					  <button class="btn btn-theme btn-block" onclick="submit()" type="button"><i class="fa fa-lock"></i><span id="loginButton"></span></button>
+				  </div>
+
+				  <!-- Modal -->
+				  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+					  <div class="modal-dialog">
+						  <div class="modal-content">
+							  <div class="modal-header">
+								  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								  <h4 class="modal-title">Forgot Password ?</h4>
+							  </div>
+							  <div class="modal-body">
+								  <p>Enter your e-mail address below to reset your password.</p>
+								  <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+							  </div>
+							  <div class="modal-footer">
+								  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+								  <button class="btn btn-theme" type="button">Submit</button>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+		          <!-- modal -->
+		
+			  </div>
+	  	
+	  	</div>
+	  </div>
+	
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/custom/cookie.js"></script>
+    <script src="assets/js/jquery.json.min.js"></script>
+    <script src="assets/js/jquery.i18n.properties.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+	<script src="assets/js/custom/login.js"></script>
+  </body>
+</html>

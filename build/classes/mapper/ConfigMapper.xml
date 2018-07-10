@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.globot.hmi.attendance.dao.mapper.ConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.globot.hmi.attendance.domain.Device" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="device_type" property="deviceType" jdbcType="TINYINT" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <update id="setConfig">
+    update config set language = language^1
+  </update>
+  
+  <select id="readConfig" resultType="INTEGER">
+  	select * from config
+  </select>
+</mapper>

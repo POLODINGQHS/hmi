@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.globot.hmi.attendance.dao.mapper.FaceRecogMapper" >
+
+
+  <insert id="insertFaceRecog" parameterType="com.globot.hmi.attendance.domain.FaceRecog">
+    insert into faceRecog(id,fileLocation,username) values(#{id,jdbcType=VARCHAR},#{fileLocation,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR})
+  </insert>
+  
+  <select id="readConfig" resultType="INTEGER">
+  	select * from config
+  </select>
+</mapper>

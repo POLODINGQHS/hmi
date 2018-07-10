@@ -1,0 +1,25 @@
+.signininfo{
+	
+}
+.signininfo-row{
+	padding-bottom: 3px;
+	font-size: 15px;
+}
+#totalDays,#realDays {
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#0000FF;
+	font-size: 20px;
+}
+#leaveDays {
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#00FF00;
+	font-size: 20px;
+}
+#absentDays,#lateDays,#leaveEarlyDays {
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#FF0000;
+	font-size: 20px;
+}
